@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 700 390" fill="none" aria-hidden="true">
+<defs><linearGradient id="arch" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#c99f8f"/><stop offset=".55" stop-color="#94715f"/><stop offset="1" stop-color="#d5b7a7"/></linearGradient><radialGradient id="glow"><stop stop-color="#f5dec2" stop-opacity=".7"/><stop offset="1" stop-color="#f5dec2" stop-opacity="0"/></radialGradient></defs>
+<ellipse cx="350" cy="365" rx="220" ry="14" fill="#315c50" opacity=".08"/>
+<circle cx="350" cy="165" r="153" fill="url(#glow)"/>
+<g stroke="url(#arch)" stroke-width="3.5"><path d="M215 360V168C215 89 275 37 350 37s135 52 135 131v192"/><path d="M235 360V169C235 104 284 58 350 58s115 46 115 111v191" stroke-width="1.5"/><path d="M198 360V168C198 79 267 19 350 19s152 60 152 149v192" stroke-width="1.4"/></g>
+<path d="M270 360V190Q270 111 350 111Q430 111 430 190V360" fill="#e7eee7" fill-opacity=".42" stroke="#bda18d" stroke-width="1.5"/>
+<path d="M350 111V360M270 258H430" stroke="#c9b09f" stroke-width="1.3" opacity=".7"/>
+<path d="M272 360Q350 330 428 360" stroke="#b39a87" stroke-width="1.2"/>
+<g stroke="#9b796c" stroke-width="1.8" stroke-linecap="round"><path d="M350 43V102M275 63V117M425 63V117"/></g>
+<g fill="#cfae8d"><path d="M337 100h26l-6 22h-14z"/><rect x="346" y="121" width="8" height="6" rx="2"/><path d="M266 115h18l-4 16h-10zM416 115h18l-4 16h-10z"/></g>
+<g fill="#e7c78b" opacity=".85"><circle cx="350" cy="113" r="7"/><circle cx="275" cy="124" r="4"/><circle cx="425" cy="124" r="4"/></g>
+<g stroke="#6a8c7c" stroke-width="2.2" stroke-linecap="round"><path d="M183 360C173 288 130 217 83 177M182 360C212 303 215 250 206 183M520 360C529 291 571 217 617 177M519 360C489 303 485 250 494 183"/></g>
+<g fill="#87a699" fill-opacity=".42" stroke="#6c907e" stroke-width="1.2"><path d="M145 274Q100 273 94 231Q137 230 145 274ZM163 309Q111 328 87 288Q132 266 163 309ZM129 227Q90 228 83 189Q123 191 129 227ZM187 259Q224 225 232 191Q189 194 187 259ZM195 307Q235 288 247 254Q207 259 195 307ZM555 274Q600 273 606 231Q563 230 555 274ZM537 309Q589 328 613 288Q568 266 537 309ZM571 227Q610 228 617 189Q577 191 571 227ZM513 259Q476 225 468 191Q511 194 513 259ZM505 307Q465 288 453 254Q493 259 505 307Z"/></g>
+<g stroke="#b88c7a" fill="#f8ece3" stroke-width="1.5"><circle cx="155" cy="219" r="15"/><circle cx="155" cy="219" r="6" fill="#d8a69b"/><circle cx="547" cy="219" r="15"/><circle cx="547" cy="219" r="6" fill="#d8a69b"/><circle cx="198" cy="175" r="10"/><circle cx="502" cy="175" r="10"/></g>
+<g fill="#b78c79" opacity=".9"><circle cx="244" cy="34" r="3"/><circle cx="456" cy="34" r="3"/><circle cx="183" cy="117" r="2"/><circle cx="517" cy="117" r="2"/><circle cx="350" cy="15" r="3"/></g>
+</svg>
