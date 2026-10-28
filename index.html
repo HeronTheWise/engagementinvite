@@ -204,9 +204,41 @@
     @media(max-width:640px){.families{padding-block:82px}.blessing-lantern{width:35px;height:155px;left:4%;opacity:.36}.blessing-lantern.right{right:4%}.parents-grid{grid-template-columns:1fr;gap:14px;margin:24px auto 10px;max-width:430px}.parent-card{padding:27px 15px 30px}.parent-card p:last-child{font-size:23px}.parents-center{font-size:36px;height:32px}.family-figure{width:calc(100vw - 25px);margin-bottom:-38px}.family-figure figcaption{font-size:14px}.rsvp{padding-bottom:78px}}
     @media(prefers-reduced-motion:reduce){.blessing-lantern,.parents-center,.families.in-view .parent-card,.rsvp.in-view .family-figure img{animation:none!important}}
   </style>
+  <style>
+    /* A more illustrated, interactive celebration — release 2026.10.28 */
+    .cover h1{font-family:'Playfair Display',Georgia,serif;font-weight:500;font-size:clamp(31px,5vw,52px);letter-spacing:.015em;color:#275147;line-height:1.2}
+    .cover-inner{z-index:3}.opening-reveal{position:absolute;z-index:2;inset:-35vh -35vw;background:radial-gradient(circle at center,#fffaf3 0%,#f2dfd7 37%,#d2e2d6 68%,#274e45 100%);border-radius:50%;transform:scale(0);opacity:0;pointer-events:none}
+    .cover.opening .opening-reveal{animation:fullScreenBloom 1.7s cubic-bezier(.18,.68,.2,1) forwards}
+    .cover.opening .cover-inner{animation:coverGoodbye 1.45s ease forwards}
+    .cover.opening .env-flap{transform:rotateX(180deg)}
+    @keyframes fullScreenBloom{0%{transform:scale(0);opacity:.1}45%{opacity:1}100%{transform:scale(1.8);opacity:1}}
+    @keyframes coverGoodbye{0%,30%{filter:blur(0);opacity:1}100%{transform:translateY(-70px) scale(1.17);filter:blur(10px);opacity:0}}
+    .hero:after{content:"";position:absolute;inset:auto 0 0;height:min(28vw,240px);background:url('./floral-watercolor.webp') bottom center/cover no-repeat;opacity:.49;pointer-events:none;mask-image:linear-gradient(transparent,#000 55%)}
+    .hero .hero-content{padding-bottom:clamp(45px,7vw,90px)}
+    .sibling-title{font-family:'Playfair Display',Georgia,serif;font-size:clamp(22px,3vw,29px);font-weight:400;margin:32px 0 18px;color:#2d554a}
+    .siblings-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px;max-width:720px;margin:0 auto}
+    .sibling-card{border:1px solid #d7bdb3;background:#fffbf6c9;padding:20px 18px;box-shadow:0 12px 24px #25483e0c;position:relative}
+    .sibling-card:before{content:'✦';display:block;color:#b57c71;font-size:22px;margin-bottom:8px}
+    .sibling-card .detail-label{margin-bottom:8px}.sibling-card strong{font-family:'Playfair Display',Georgia,serif;font-size:clamp(19px,2.2vw,24px);font-weight:500;color:#2b5549}
+    .storybook{background:linear-gradient(#f2e6de,#e3eadd);padding:90px 18px}.storybook .content{max-width:1040px}
+    .storybook-image{display:block;width:100%;aspect-ratio:1.8;object-fit:cover;border:9px solid #fff9f2;box-shadow:0 26px 65px #27443738;border-radius:190px 190px 12px 12px}
+    .storybook h2{font-family:'Playfair Display',Georgia,serif;font-size:clamp(29px,4.3vw,51px);font-weight:500;margin:22px auto 8px;color:#264f46}
+    .storybook .intro-text{font-family:Jost,Arial,sans-serif;font-size:clamp(15px,1.8vw,19px);line-height:1.7;max-width:640px;margin:0 auto 24px;color:#557267}
+    .wish-box{max-width:640px;margin:22px auto 0;background:#fff9f0da;border:1px solid #cfb3a5;padding:22px 20px 28px;position:relative}
+    .wish-box:before{content:'✦   ✧   ✦';display:block;color:#b78175;letter-spacing:.5em;margin-bottom:10px}
+    .wish-message{min-height:54px;margin:16px auto;font-family:'Playfair Display',Georgia,serif;font-size:clamp(18px,2.5vw,25px);font-style:italic;color:#375e54;line-height:1.5}
+    .wish-petal{position:fixed;z-index:105;pointer-events:none;font-size:clamp(20px,3vw,38px);color:#ba8175;animation:wishFly 2.7s ease-out forwards;left:var(--x);top:var(--y)}
+    @keyframes wishFly{0%{transform:translate(0,0) rotate(0) scale(.65);opacity:0}18%{opacity:.95}100%{transform:translate(var(--dx),-64vh) rotate(var(--rot)) scale(1.2);opacity:0}}
+    .countdown:after{content:"";position:absolute;left:0;right:0;bottom:0;height:130px;background:url('./floral-watercolor.webp') bottom center/cover no-repeat;opacity:.34;mask-image:linear-gradient(transparent,#000)}
+    .countdown .content{z-index:1}.time-zone{font-family:Jost,Arial,sans-serif;font-size:12px;letter-spacing:.09em;color:#6e8175;margin:18px auto 0}
+    .countdown-finished{font-family:'Playfair Display',Georgia,serif;font-size:23px;color:#365c52}
+    @media(max-width:640px){.storybook{padding:75px 14px}.storybook-image{aspect-ratio:.9;border-width:5px;border-radius:130px 130px 9px 9px}.siblings-grid{grid-template-columns:1fr;max-width:390px}.sibling-card{padding:17px}.cover h1{font-size:34px}.hero:after{height:170px}.hero .hero-content{padding-bottom:78px}}
+    @media(prefers-reduced-motion:reduce){.cover.opening .opening-reveal,.cover.opening .cover-inner,.wish-petal{animation:none!important}}
+  </style>
 </head>
 <body>
   <div class="cover" id="cover">
+    <div class="opening-reveal" aria-hidden="true"></div>
     <div class="cover-inner">
       <p class="eyebrow">A special invitation</p>
       <h1>A Beautiful Beginning</h1>
@@ -218,9 +250,10 @@
     <section class="section hero" id="home"><div class="double-frame"></div><div class="floral" aria-hidden="true"></div>
       <div class="hero-content"><p class="intro">With the blessings of our families</p><div class="flourish">❦</div><h2>We joyfully invite you to celebrate</h2><div class="names"><span data-field="name1">Sahana</span><span class="amp">&amp;</span><span data-field="name2">Akshath</span></div><p class="hero-lead">Two hearts, one beautiful beginning</p><div class="rule"></div><p class="event-date" data-field="dateDisplay">Friday · 27 November 2026</p><p class="eyebrow" style="margin-top:18px">Our engagement celebration</p></div><a href="#details" class="scroll-cue">Scroll to discover<span></span></a>
     </section>
-    <section class="section families" id="families"><div class="double-frame"></div><div class="content family-content"><p class="eyebrow">Our cherished families</p><h2 class="section-title">With the Blessings of</h2><div class="flourish">✧ ❦ ✧</div><p class="body-copy">Two families, one joyful celebration. We begin this beautiful journey with the love and blessings of our parents.</p><div class="parents-grid"><article class="parent-card"><p class="detail-label" data-field="name1">Sahana</p><h3>Parents of the Bride-to-be</h3><p><span data-field="parent1a">D S Raghu</span><span class="parent-amp">&amp;</span><span data-field="parent1b">Y H Bhagyalakshmi</span></p></article><span class="parents-center" aria-hidden="true">♡</span><article class="parent-card"><p class="detail-label" data-field="name2">Akshath</p><h3>Parents of the Groom-to-be</h3><p><span data-field="parent2a">Anand S Ghanti</span><span class="parent-amp">&amp;</span><span data-field="parent2b">Geeta Anand Ghanti</span></p></article></div><div class="flourish" style="margin-top:25px">❧</div></div></section>
+    <section class="section families" id="families"><div class="double-frame"></div><div class="content family-content"><p class="eyebrow">Our cherished families</p><h2 class="section-title">With the Blessings of</h2><div class="flourish">✧ ❦ ✧</div><p class="body-copy">Two families, one joyful celebration. We begin this beautiful journey with the love and blessings of our parents.</p><div class="parents-grid"><article class="parent-card"><p class="detail-label" data-field="name1">Sahana</p><h3>Parents of the Bride-to-be</h3><p><span data-field="parent1a">D S Raghu</span><span class="parent-amp">&amp;</span><span data-field="parent1b">Y H Bhagyalakshmi</span></p></article><span class="parents-center" aria-hidden="true">♡</span><article class="parent-card"><p class="detail-label" data-field="name2">Akshath</p><h3>Parents of the Groom-to-be</h3><p><span data-field="parent2a">Anand S Ghanti</span><span class="parent-amp">&amp;</span><span data-field="parent2b">Geeta Anand Ghanti</span></p></article></div><h3 class="sibling-title">With Love From Our Siblings</h3><div class="siblings-grid"><article class="sibling-card"><p class="detail-label">Sahana's brother</p><strong>Madhusudhana Raghu</strong></article><article class="sibling-card"><p class="detail-label">Akshath's sister</p><strong>Poorvi Ghanti</strong></article></div><div class="flourish" style="margin-top:25px">❧</div></div></section>
+    <section class="section storybook" id="storybook"><div class="double-frame"></div><div class="content"><p class="eyebrow">A little magic in the air</p><h2>Love, Laughter &amp; a Lifetime Ahead</h2><p class="intro-text">Under a sky full of blessings, a beautiful new chapter begins. Come celebrate the joy with us.</p><img class="storybook-image" src="./garden-celebration.webp" loading="lazy" alt="Watercolor illustration of a floral engagement garden, golden lanterns and a couple under a rose-covered mandap"/><div class="wish-box"><p class="eyebrow">A little fun for you</p><h3 class="sibling-title" style="margin-top:8px">Send a Little Wish</h3><p id="wish-message" class="wish-message" aria-live="polite">A sprinkle of blessings makes every love story brighter ✧</p><button id="wish-btn" type="button" class="btn">Shower Them With Love ✨</button></div></div></section>
     <section class="section details" id="details"><div class="double-frame"></div><div class="floral" aria-hidden="true"></div><div class="content"><p class="eyebrow">The celebration</p><h3 class="small-heading">Save the Date</h3><h2 class="section-title">Together is a wonderful place to be</h2><div class="rule"></div><p class="body-copy">With love in our hearts and joy in our families, we invite you to be part of our special day as we begin a new chapter together.</p><div class="detail-grid"><div><p class="detail-label">When</p><p class="detail-value" data-field="dateLong">27 November<br>2026</p></div><div><p class="detail-label">Time</p><p class="detail-value" data-field="time">10 AM Onwards</p></div><div><p class="detail-label">Where</p><p class="detail-value" data-field="venue">Asthitva Teak Meadows</p></div></div><div class="actions"><button class="btn" id="calendar">Add to Calendar ↗</button></div></div></section>
-    <section class="section countdown" id="countdown"><div class="double-frame"></div><div class="content"><p class="eyebrow">Counting down to forever</p><h2 class="small-heading">The Wait Is Almost Over</h2><p class="quote">“Every love story is beautiful, but ours is our favourite.”</p><div class="count-cells"><div class="count-cell"><strong id="days">00</strong><span>Days</span></div><div class="count-cell"><strong id="hours">00</strong><span>Hours</span></div><div class="count-cell"><strong id="minutes">00</strong><span>Minutes</span></div><div class="count-cell"><strong id="seconds">00</strong><span>Seconds</span></div></div><div class="flourish">✧ ❦ ✧</div><p class="body-copy">Your presence will make our celebration even more meaningful.</p></div></section>
+    <section class="section countdown" id="countdown"><div class="double-frame"></div><div class="content"><p class="eyebrow">Counting down to forever</p><h2 class="small-heading">The Wait Is Almost Over</h2><p class="quote">“Every love story is beautiful, but ours is our favourite.”</p><div class="count-cells"><div class="count-cell"><strong id="days">00</strong><span>Days</span></div><div class="count-cell"><strong id="hours">00</strong><span>Hours</span></div><div class="count-cell"><strong id="minutes">00</strong><span>Minutes</span></div><div class="count-cell"><strong id="seconds">00</strong><span>Seconds</span></div></div><p id="countdown-zone" class="time-zone">Counting down to Friday, 27 November 2026 · 10:00 AM IST</p><div class="flourish">✧ ❦ ✧</div><p class="body-copy">Your presence will make our celebration even more meaningful.</p></div></section>
     <section class="section venue" id="venue"><div class="double-frame"></div><div class="venue-card"><p class="eyebrow">The venue</p><h2 class="small-heading">Where We Celebrate</h2><img class="venue-illustration" src="./ornamental-arch.svg" alt="Decorative floral arch illustration" loading="lazy"><div class="flourish">❦</div><h3 class="venue-name" data-field="venue">Asthitva Teak Meadows</h3><p class="venue-address" data-field="address">63/1, Kachohalli Main Rd, opp. to HP petrol bunk, Kempegowdanagar, Byadarahalli, Bengaluru, Karnataka 562162</p><p class="venue-code" id="venue-code">✦ &nbsp; Plus Code: XFRC+95 Bengaluru, Karnataka</p><div class="actions"><a class="btn outline" id="maps" target="_blank" rel="noopener noreferrer" href="https://www.google.com/maps/dir/?api=1&amp;destination=Asthitva%20Teak%20Meadows">Get Directions ↗</a><a class="btn venue-web" href="https://www.asthitva.in/asthitva-teak-meadows/" target="_blank" rel="noopener noreferrer">Explore the Venue ↗</a></div></div></section>
     <section class="section rsvp" id="rsvp"><div class="double-frame"></div><div class="floral" aria-hidden="true"></div><div class="content"><p class="eyebrow">With all our love</p><h2 class="small-heading">Will You Join Us?</h2><h3 class="section-title">We can't wait to celebrate with you</h3><p class="body-copy">Kindly let us know if you can make it.</p><form id="rsvp-form" class="rsvp-form"><label for="guest-name">Your name</label><input id="guest-name" name="name" maxlength="90" required autocomplete="name" placeholder="Your full name"><label for="guest-mobile">Mobile number</label><input id="guest-mobile" name="mobile" type="tel" inputmode="tel" maxlength="22" required autocomplete="tel" placeholder="+91 98765 43210" pattern="[+0-9 ()-]{10,22}" title="Enter your mobile number, including country code if outside India"><p style="font-family:Jost,Arial,sans-serif;font-size:12px;line-height:1.6;color:#607b70;text-align:left;max-width:470px;margin:5px auto 12px">Used only to identify your RSVP if you update it later. Your number is not displayed to other guests.</p><label for="guest-count">Number of guests (including you)</label><input id="guest-count" name="guests" type="number" min="1" max="20" value="1" required><label for="guest-note">Message for the couple (optional)</label><input id="guest-note" name="note" maxlength="220" placeholder="A note with love"><input type="text" name="website" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-10000px;width:1px;height:1px"><input type="hidden" name="response" id="rsvp-choice"><div class="response-options"><button type="button" class="btn" data-rsvp="Joyfully accepts">Joyfully Accept</button><button type="button" class="btn outline" data-rsvp="Regretfully declines">Regretfully Decline</button></div></form><p class="response-note" id="response-note" aria-live="polite"></p><div class="rule"></div><p class="eyebrow">Together with our families</p><div class="names" style="font-size:clamp(45px,8vw,75px)"><span data-field="name1">Sahana</span><span class="amp">&amp;</span><span data-field="name2">Akshath</span></div><figure class="family-figure"><img src="./family-illustration.webp" alt="Illustration of a joyful Indian engagement couple seated with four family elders; decorative fictional characters" loading="lazy"><figcaption>With the love of our families</figcaption></figure></div></section>
   </main>
@@ -236,10 +269,23 @@
     function eventTimeParts(){const m=data.time.match(/^\s*(\d{1,2})(?::(\d{2}))?\s*(AM|PM)\b/i);if(!m)return null;let h=Number(m[1])%12;if(m[3].toUpperCase()==='PM')h+=12;return [h,Number(m[2]||0)]}
     function render(){document.querySelectorAll('[data-field]').forEach(el=>{const field=el.dataset.field;if(field==='dateDisplay')el.textContent=new Intl.DateTimeFormat('en-GB',{weekday:'long',day:'numeric',month:'long',year:'numeric'}).format(dateParts()).replace(',',' ·');else if(field==='dateLong'){el.textContent=new Intl.DateTimeFormat('en-GB',{day:'numeric',month:'long',year:'numeric'}).format(dateParts())}else el.textContent=data[field]||''});const destination=data.venue===defaults.venue&&data.address===defaults.address?'XFRC+95 Bengaluru, Karnataka':data.address.startsWith('[')?data.venue:data.address;$('maps').href='https://www.google.com/maps/dir/?api=1&destination='+encodeURIComponent(destination)+'&travelmode=driving&dir_action=navigate';$('venue-code').hidden=data.venue!==defaults.venue;document.querySelector('.venue-web').hidden=data.venue!==defaults.venue;document.title=data.name1+' & '+data.name2+' | Engagement Invitation';document.querySelector('meta[property="og:title"]').content=document.title}
     render();
-    let opened=false;function openInvite(){if(opened)return;opened=true;$('cover').classList.add('opening');setTimeout(()=>{$('cover').classList.add('hidden');$('site').classList.add('visible');$('site').inert=false;$('footer').hidden=false;window.scrollTo(0,0)},1100)}
+    let opened=false;function openInvite(){if(opened)return;opened=true;$('cover').classList.add('opening');setTimeout(()=>{$('cover').classList.add('hidden');$('site').classList.add('visible');$('site').inert=false;$('footer').hidden=false;window.scrollTo(0,0)},1750)}
     $('envelope').addEventListener('click',openInvite);$('envelope').addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();openInvite()}});
     if(location.hash&&location.hash!=='#home')openInvite();
-    function tick(){const [h,m]=eventTimeParts()||[0,0];const target=new Date(data.date+'T'+String(h).padStart(2,'0')+':'+String(m).padStart(2,'0')+':00+05:30').getTime();let delta=Math.max(0,target-Date.now());const day=Math.floor(delta/86400000);delta%=86400000;const hour=Math.floor(delta/3600000);delta%=3600000;const min=Math.floor(delta/60000);const sec=Math.floor(delta%60000/1000);[['days',day],['hours',hour],['minutes',min],['seconds',sec]].forEach(([id,v])=>$(id).textContent=String(v).padStart(2,'0'))}tick();setInterval(tick,1000);
+    function tick(){
+      const [h,m]=eventTimeParts()||[10,0];
+      const [year,month,dayOfMonth]=data.date.split('-').map(Number);
+      // Asia/Kolkata is UTC+05:30. Compute once from the event's own timezone,
+      // never from the visitor's browser timezone or locale.
+      const target=Date.UTC(year,month-1,dayOfMonth,h,m)-330*60000;
+      const remaining=Math.max(0,target-Date.now());
+      const day=Math.floor(remaining/86400000);
+      const hour=Math.floor(remaining%86400000/3600000);
+      const min=Math.floor(remaining%3600000/60000);
+      const sec=Math.floor(remaining%60000/1000);
+      [['days',day],['hours',hour],['minutes',min],['seconds',sec]].forEach(([id,v])=>$(id).textContent=String(v).padStart(2,'0'));
+      $('countdown-zone').textContent=remaining===0?'The celebration has begun! ♡':'Counting down to '+new Intl.DateTimeFormat('en-GB',{weekday:'long',day:'numeric',month:'long',year:'numeric'}).format(dateParts())+' · '+String(h).padStart(2,'0')+':'+String(m).padStart(2,'0')+' IST';
+    }tick();setInterval(tick,1000);
     // Verified 28 October 2026: v2 returned created, then updated for the same guest identity.
     const RSVP_ENDPOINT='https://script.google.com/macros/s/AKfycbwyL3Jp0tkkIZsn3-sh4mFSl5NK3nFOoOHCbOsZ4EGiflvXI3dSgqvZTL0fZgXdLyBb/exec';
     const rsvpForm=$('rsvp-form');
@@ -295,6 +341,31 @@
     function updateReadingProgress(){const max=document.documentElement.scrollHeight-window.innerHeight;progressBar.style.transform='scaleX('+(max>0?Math.max(0,Math.min(1,window.scrollY/max)):0)+')';progressQueued=false}
     window.addEventListener('scroll',()=>{if(!progressQueued){progressQueued=true;requestAnimationFrame(updateReadingProgress)}},{passive:true});
     window.addEventListener('resize',updateReadingProgress,{passive:true});updateReadingProgress();
+  </script>
+  <script>
+    // A small playful blessing shower. Entirely local; never submits data or alters RSVPs.
+    const wishes=[
+      'May every day bring a new reason to smile together. ♡',
+      'A lifetime of laughter, little adventures and endless love. ✧',
+      'May your forever be filled with beautiful ordinary moments. ❦',
+      'Two hearts, countless adventures, one wonderful story. ♡',
+      'Here’s to a home filled with warmth, joy and togetherness. ✦'
+    ];
+    let wishIndex=-1;
+    $('wish-btn').addEventListener('click',()=>{
+      wishIndex=(wishIndex+1)%wishes.length;
+      $('wish-message').textContent=wishes[wishIndex];
+      if(window.matchMedia('(prefers-reduced-motion: reduce)').matches)return;
+      const rect=$('wish-btn').getBoundingClientRect();
+      for(let i=0;i<16;i++){
+        const el=document.createElement('span');el.className='wish-petal';el.textContent=i%3===0?'♥':i%3===1?'✦':'✿';
+        el.style.setProperty('--x',(rect.left+rect.width/2+(Math.random()-.5)*90)+'px');
+        el.style.setProperty('--y',(rect.top+rect.height/2)+'px');
+        el.style.setProperty('--dx',((Math.random()-.5)*Math.min(window.innerWidth,650))+'px');
+        el.style.setProperty('--rot',((Math.random()-.5)*540)+'deg');
+        document.body.appendChild(el);el.addEventListener('animationend',()=>el.remove(),{once:true});
+      }
+    });
   </script>
 </body>
 </html>
