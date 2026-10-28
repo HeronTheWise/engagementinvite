@@ -240,11 +240,13 @@
     $('envelope').addEventListener('click',openInvite);$('envelope').addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();openInvite()}});
     if(location.hash&&location.hash!=='#home')openInvite();
     function tick(){const [h,m]=eventTimeParts()||[0,0];const target=new Date(data.date+'T'+String(h).padStart(2,'0')+':'+String(m).padStart(2,'0')+':00+05:30').getTime();let delta=Math.max(0,target-Date.now());const day=Math.floor(delta/86400000);delta%=86400000;const hour=Math.floor(delta/3600000);delta%=3600000;const min=Math.floor(delta/60000);const sec=Math.floor(delta%60000/1000);[['days',day],['hours',hour],['minutes',min],['seconds',sec]].forEach(([id,v])=>$(id).textContent=String(v).padStart(2,'0'))}tick();setInterval(tick,1000);
-    const RSVP_ENDPOINT='https://script.google.com/macros/s/AKfycbyXER2TLFTzqwSFRWWKljqLlflRfYve5MY3mOLzxxGdujw1rOqBdkTDJhUXlviwIpSw/exec';
+    // Temporarily disabled: the deployed backend returned {ok:false} during verification.
+    // Re-enable once the Google Sheet binding is fixed and a POST returns {ok:true}.
+    const RSVP_ENDPOINT='';
     const rsvpForm=$('rsvp-form');
     document.querySelectorAll('[data-rsvp]').forEach(button=>button.addEventListener('click',()=>{
       if(!rsvpForm.reportValidity())return;
-      if(!RSVP_ENDPOINT){$('response-note').textContent='RSVP submissions are being activated. Please check back shortly.';return}
+      if(!RSVP_ENDPOINT){$('response-note').textContent='Online RSVP is temporarily unavailable. Please contact the hosts to confirm attendance.';return}
       const answer=button.dataset.rsvp;
       $('rsvp-choice').value=answer;
       const payload=new URLSearchParams(new FormData(rsvpForm));
