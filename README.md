@@ -30,6 +30,21 @@ Do not publish or share the Google Sheet itself. Only the Apps Script **web app*
 
 **Important:** A static page using `no-cors` cannot inspect the response from Apps Script. The UI reports that a request was sent, but this is not cryptographic acknowledgement of storage; confirm delivery in the Sheet. The form intentionally displays a setup message until a real web-app URL is configured.
 
+## Upgrade: prevent duplicate RSVPs (mobile number + name)
+
+The latest `GoogleAppsScript.gs` performs an **upsert**: it finds an existing row by normalized guest name and mobile number, and updates attendance, guest count, optional message and `Last Updated (IST)` in that same row. It preserves the original submitted date and submission ID. Phone numbers entered as `9876543210`, `09876543210`, or `+91 98765 43210` are treated as the same Indian number. Distinct names sharing one phone remain separate guests.
+
+To activate this upgrade on an existing deployment:
+
+1. Open your **private Google Sheet → Extensions → Apps Script**.
+2. Replace the entire `Code.gs` content with the latest [`GoogleAppsScript.gs`](GoogleAppsScript.gs) and **Save**.
+3. Select **Deploy → Manage deployments**. Open the current web app deployment, click **Edit** (pencil), select **New version**, then click **Deploy**. Keep **Execute as: Me** and **Who has access: Anyone**. The `/exec` URL should remain unchanged for the edited deployment.
+4. Submit a clearly labeled test with a name and mobile, then repeat it with the same identity and a changed guest count. Check that the same row updates rather than creating another.
+
+The script expands the existing table to eight columns without deleting the first six: **G: Mobile Number** and **H: Last Updated (IST)**. Older rows without a mobile number can be claimed by a matching name only when there is exactly one unambiguous legacy match. Ambiguous older duplicates need manual review.
+
+**Rollout:** The backend is backward-compatible with the older invitation (which did not ask for mobile). Deploy the script upgrade first; publish the mobile-number form only after the backend has been tested. Never share this spreadsheet publicly, as mobile numbers are personal data.
+
 ## Excel export
 
 Open the Sheet → **File → Download → Microsoft Excel (.xlsx)**. This exports the latest rows any time, without exposing the Sheet to guests.
