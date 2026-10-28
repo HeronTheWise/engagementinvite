@@ -5,7 +5,12 @@
  * The spreadsheet itself must NOT be shared publicly.
  */
 const SHEET_NAME = 'RSVP Responses';
+const VERSION = '2.0-DUPLICATE-PROTECTION';
 const HEADERS = ['Submitted At (IST)', 'Guest Name', 'Response', 'Guest Count', 'Message', 'Submission ID', 'Mobile Number', 'Last Updated (IST)'];
+
+function doGet() {
+  return json_({ ok: true, version: VERSION, message: 'Sahana & Akshath RSVP backend is running' });
+}
 
 function doPost(e) {
   const lock = LockService.getScriptLock();
@@ -18,9 +23,7 @@ function doPost(e) {
     const message = clean_(p.note, 220);
     const count = Number(p.guests);
     const mobile = normalizeMobile_(p.mobile);
-    // During migration, permit submissions from the previously deployed invitation,
-    // which did not send a mobile number. New clients require a valid number.
-    if (p.mobile && !mobile) return json_({ ok: false, error: 'Invalid mobile number' });
+    if (!mobile) return json_({ ok: false, error: 'Valid mobile number is required' });
     if (!name || !['Joyfully accepts', 'Regretfully declines'].includes(answer) ||
         !Number.isInteger(count) || count < 1 || count > 20) {
       return json_({ ok: false, error: 'Invalid RSVP fields' });
@@ -53,13 +56,13 @@ function doPost(e) {
       // Keep column A (first RSVP) and F (original submission ID) intact.
       sheet.getRange(existingRow, 2, 1, 4).setValues([[name, answer, count, message]]);
       sheet.getRange(existingRow, 7, 1, 2).setValues([[mobile, timestamp]]);
-      return json_({ ok: true, action: 'updated' });
+      return json_({ ok: true, action: 'updated', version: VERSION });
     }
     sheet.appendRow([timestamp, name, answer, count, message, Utilities.getUuid(), mobile, timestamp]);
-    return json_({ ok: true, action: 'created' });
+    return json_({ ok: true, action: 'created', version: VERSION });
   } catch (err) {
     console.error(err);
-    return json_({ ok: false, error: 'Could not record RSVP' });
+    return json_({ ok: false, error: 'Could not record RSVP', version: VERSION });
   } finally {
     if (lock.hasLock()) lock.releaseLock();
   }
