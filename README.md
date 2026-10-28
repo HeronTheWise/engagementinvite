@@ -43,7 +43,7 @@ To activate this upgrade on an existing deployment:
 
 The script expands the existing table to eight columns without deleting the first six: **G: Mobile Number** and **H: Last Updated (IST)**. Older rows without a mobile number can be claimed by a matching name only when there is exactly one unambiguous legacy match. Ambiguous older duplicates need manual review.
 
-**Rollout:** The backend is backward-compatible with the older invitation (which did not ask for mobile). Deploy the script upgrade first; publish the mobile-number form only after the backend has been tested. Never share this spreadsheet publicly, as mobile numbers are personal data.
+**Status (28 October 2026):** The mobile-number form is live, the backend version `2.0-DUPLICATE-PROTECTION` responded successfully, and the create/update test returned `created` then `updated`. Guests now need to provide a mobile number. Never share this spreadsheet publicly, as mobile numbers are personal data. After confirming the test row, remove the clearly labeled test record from the Sheet.
 
 ## Excel export
 
